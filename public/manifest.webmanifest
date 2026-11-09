@@ -3,7 +3,7 @@
   "name": "Thomas' World",
   "short_name": "Thomas' World",
   "description": "The Sallese family globe: planes, trains, weather and traffic, live.",
-  "start_url": ".",
+  "start_url": "./#lat=42.5065&lon=-71.0723&alt=9000&heading=0&pitch=-45&map=photoreal",
   "scope": ".",
   "display": "standalone",
   "orientation": "any",
