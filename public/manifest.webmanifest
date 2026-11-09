@@ -1,8 +1,8 @@
 {
   "id": ".",
-  "name": "God's Eye View",
-  "short_name": "God's Eye",
-  "description": "Live spatial intelligence in the browser.",
+  "name": "Thomas' World",
+  "short_name": "Thomas' World",
+  "description": "The Sallese family globe: planes, trains, weather and traffic, live.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
