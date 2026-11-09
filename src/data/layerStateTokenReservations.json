@@ -34,5 +34,6 @@
   ["weather-radar", "v"],
   ["weather-satellite", "o"],
   ["wildlife-sightings", "9"],
-  ["wind", "k"]
+  ["wind", "k"],
+  ["territory", "00"]
 ]

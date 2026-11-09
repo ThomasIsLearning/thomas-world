@@ -16,7 +16,9 @@ services:
       # into the default: this server brokers whatever provider keys you have
       # configured to anyone who can reach it. Widen this deliberately, not by
       # accident.
-      - "127.0.0.1:4173:4173"
+      # Thomas' World: TW_BIND in .env widens this on purpose (0.0.0.0 = LAN +
+      # Tailscale) so phones on the home network / tailnet can open the globe.
+      - "${TW_BIND:-127.0.0.1}:4173:4173"
     volumes:
       # Bind the source so edits hot-reload and so keys pasted into the setup
       # UI land in the .env on your host instead of vanishing with the

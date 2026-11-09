@@ -79,3 +79,25 @@ The kitchen Pi opens Thomas' World with
 long share form, so the globe always starts over Wakefield, MA no matter where
 it was left. Change the numbers or paste any share link's hash to change the
 start view; layers stay whatever was last switched on.
+
+
+## Phone access
+
+Add `TW_BIND=0.0.0.0` to `~/thomas-world/.env` and run `thomas-world restart`.
+The globe is then reachable from phones on the home Wi-Fi or over Tailscale at
+`http://<pi-address>:4173/`. Anyone who can reach that port can use the
+configured provider keys through the server, so keep it to your own networks
+(the Pi is not port-forwarded). Provider Settings stay localhost-only.
+
+## Territory layer
+
+`src/layers/territory/` draws Thomas' sales territory (hubs with evening
+drive times, towns coloured by owner, outlines) from one private file:
+`public/territory/territory.json`, git-ignored. Produce it on the Pi with
+
+    python3 ~/Pi5-Home-Node/tools/territory-export.py
+
+Enable it from the layer panel ("Thomas" group); the first enable flies to the
+whole territory. Quick view with radar and traffic:
+
+    http://127.0.0.1:4173/?lite=1#v=2&lat=42.9&lon=-72.6&alt=420000&heading=0&pitch=-55&map=photoreal&l=00.t.v

@@ -734,6 +734,7 @@ export const LAYER_STATE_REGISTRY = Object.freeze([
     token: 'u',
     disposition: 'enabled-only',
   }),
+  Object.freeze({ id: 'territory', token: '00', disposition: 'enabled-only' }),
   Object.freeze({
     id: 'traffic',
     token: 't',
