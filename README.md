@@ -1,3 +1,5 @@
+> **This fork is Thomas' World**: the kitchen-screen build for a Raspberry Pi 5 Home Node. Pi install, service and notes live in [`thomas-world/`](thomas-world/README.md). Everything below is the upstream project's README.
+
 <div align="center">
 
 # 🌐 God's Eye View
