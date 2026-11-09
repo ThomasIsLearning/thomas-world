@@ -66,3 +66,16 @@ heaviest thing the Home Node draws. If it stutters: keep terrain off, prefer
 the plain satellite imagery over Cesium ion 3D tiles, and turn on only the
 layers you look at. The Home Base idle timer still closes the tab after ten
 quiet minutes so it is not rendering all night.
+
+
+## Lite mode and the start view
+
+The kitchen Pi opens Thomas' World with
+
+    http://127.0.0.1:4173/?lite=1#lat=42.5065&lon=-71.0723&alt=9000&heading=0&pitch=-45&map=photoreal
+
+`?lite=1` turns off MSAA, caps the frame rate at 30 and renders at 0.75 scale
+(see `LITE_MODE` in `src/app/viewer.js`). The `#lat=...` hash is the app's own
+long share form, so the globe always starts over Wakefield, MA no matter where
+it was left. Change the numbers or paste any share link's hash to change the
+start view; layers stay whatever was last switched on.

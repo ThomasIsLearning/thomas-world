@@ -376,6 +376,20 @@ export function installGlobeInViewRecovery(
 }
 
 /** Cesium.Viewer options of the standard globe viewer. */
+/**
+ * Thomas' World "lite" mode for small boxes (Raspberry Pi 5 kiosk): no MSAA,
+ * 30 fps cap and a 0.75 render scale. Switch on with `?lite=1` in the URL or
+ * `localStorage['tw:lite'] = '1'`; everything else is unchanged.
+ */
+export const LITE_MODE = (() => {
+  try {
+    const q = new URLSearchParams(globalThis.location?.search || '');
+    return q.get('lite') === '1' || globalThis.localStorage?.getItem('tw:lite') === '1';
+  } catch {
+    return false;
+  }
+})();
+
 export function applicationViewerOptions(creditContainer) {
   return {
     timeline: false,
@@ -394,7 +408,7 @@ export function applicationViewerOptions(creditContainer) {
     // which would also stop CesiumWidget from creating the Sun and Moon.
     skyBox: new StarrySky(),
     creditContainer,
-    msaaSamples: 4,
+    msaaSamples: LITE_MODE ? 1 : 4,
     contextOptions: { webgl: { preserveDrawingBuffer: true } },
   };
 }
@@ -408,7 +422,11 @@ export function createApplicationViewer({ container, creditContainer }) {
     applicationViewerOptions(creditContainer),
   );
   try {
-    viewer.targetFrameRate = 60;
+    viewer.targetFrameRate = LITE_MODE ? 30 : 60;
+    if (LITE_MODE) {
+      viewer.resolutionScale = 0.75;
+      viewer.useBrowserRecommendedResolution = true;
+    }
     // A phone pinch spans fewer screen pixels than desktop zoom gestures.
     // Keep Cesium's distance-aware zoom and collision limits, with less travel
     // required on touch-first screens. Mouse/trackpad sensitivity stays native.
