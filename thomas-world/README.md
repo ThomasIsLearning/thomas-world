@@ -32,7 +32,10 @@ saves (`.env` keys, `.gev-cache/`, `.gev-logs/`) stays in `~/thomas-world`.
 
 The app works with no keys at all. Optional upgrades, entered once:
 
-- **TomTom** (traffic flow): put `TOMTOM_API_KEY=...` in `~/thomas-world/.env`
+- **TomTom** (traffic flow): put `TOMTOM_API_KEY=...` in `~/thomas-world/.env`.
+  If the panel says Street Traffic is unavailable, `bash ~/thomas-world/thomas-world.sh traffic`
+  tells you whether the key file, the app, or TomTom is the problem (`traffic fix` strips
+  hidden characters pasted from a phone terminal).
   (owner-only file). Stays inside TomTom's free tier thanks to the app's
   daily tile budget.
 - **Cesium ion** (photorealistic 3D tiles + terrain, free personal tier):
